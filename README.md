@@ -6,6 +6,10 @@ A fun and interactive **memory matching game** built with React + Vite. Test you
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
+## 🌐 Live Demo
+
+👉 **[Play the game here](https://abubakrabbas.github.io/Fruit-Card-Game/)**
+
 ---
 
 ## 🎮 How to Play
@@ -64,7 +68,7 @@ src/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/AbubakrAbbas/Fruit-Card-Game.git
+git clone https://github.com/YOUR_USERNAME/fruit-card-game.git
 
 # 2. Navigate into the project
 cd fruit-card-game
@@ -107,3 +111,5 @@ npm run build
 This project is open source and available under the [MIT License](LICENSE).
 
 ---
+
+> Made with ❤️ and React
