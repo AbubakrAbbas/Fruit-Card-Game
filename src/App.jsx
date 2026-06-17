@@ -30,6 +30,9 @@ function App() {
   const [score, setScore] = useState(0);
   const [moves, setMoves] = useState(0);
 
+  // 🏁 1. Added a dedicated state for game over status
+  const [isGameOver, setIsGameOver] = useState(false);
+
   const initializeGame = () => {
     const cardValuesCopy = [...cardValues];
     const shuffledArray = cardValuesCopy.sort(() => Math.random() - 0.5);
@@ -47,6 +50,7 @@ function App() {
     setChoiceTwo(null);
     setScore(0);
     setMoves(0);
+    setIsGameOver(false); // Reset game over state
   };
 
   useEffect(() => {
@@ -80,15 +84,25 @@ function App() {
 
       if (choiceOne.value === choiceTwo.value) {
         setScore((prevScore) => prevScore + 1);
+
         setCards((prevCards) => {
-          return prevCards.map((card) => {
+          const updatedCards = prevCards.map((card) => {
             if (card.value === choiceOne.value) {
               return { ...card, isMatched: true };
             } else {
               return card;
             }
           });
+
+          // 🏁 2. Check if EVERY card is matched using the newly updated array
+          const allMatched = updatedCards.every((card) => card.isMatched);
+          if (allMatched) {
+            setIsGameOver(true);
+          }
+
+          return updatedCards;
         });
+
         resetTurn();
       } else {
         setTimeout(() => {
@@ -112,8 +126,6 @@ function App() {
     setChoiceTwo(null);
     setDisabled(false);
   };
-
-  const isGameOver = cards.length > 0 && cards.every((card) => card.isMatched);
 
   return (
     <div className="app">
